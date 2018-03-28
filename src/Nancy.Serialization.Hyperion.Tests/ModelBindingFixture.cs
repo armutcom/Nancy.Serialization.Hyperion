@@ -9,7 +9,7 @@ namespace Nancy.Serialization.Hyperion.Tests
     public class ModelBindingFixture
     {
         [Fact]
-        public void Should_Bind_To_A_Class()
+        public async void Should_Bind_To_A_Class()
         {
             var module = new ConfigurableNancyModule(c => c.Post("/stuff", (_, m) =>
             {
@@ -26,13 +26,21 @@ namespace Nancy.Serialization.Hyperion.Tests
                 Name = "Deniz"
             };
 
+#if NETCORE
+            var browser = new Browser(bootstrapper);
+            var browserResponse = await browser.Post("/stuff", context =>
+            {
+                context.HttpRequest();
+                context.HyperionBody(user);
+            });
+#else
             var browser = new Browser(bootstrapper);
             var browserResponse = browser.Post("/stuff", context =>
             {
                 context.HttpRequest();
                 context.HyperionBody(user);
             });
-
+#endif
             Assert.Equal(user.Id.ToString(), browserResponse.Body.AsString());
         }
     }

@@ -3,9 +3,9 @@ using System.IO;
 
 namespace Nancy.Serialization.Hyperion
 {
-    public class HyperionResonse<TModel> : Response
+    public class HyperionResponse<TModel> : Response
     {
-        public HyperionResonse(TModel model, ISerializer serializer)
+        public HyperionResponse(TModel model, ISerializer serializer)
         {
             if (serializer == null)
             {

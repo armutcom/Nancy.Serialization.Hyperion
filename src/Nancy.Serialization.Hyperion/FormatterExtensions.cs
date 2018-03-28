@@ -11,7 +11,7 @@ namespace Nancy.Serialization.Hyperion
         {
             var serializer = _hyperionSerializer ?? (_hyperionSerializer =
                                  formatter.Serializers.FirstOrDefault(s => s.CanSerialize("application/x-hyperion")));
-            var hyperionResponse = new HyperionResonse<TModel>(model, serializer) {StatusCode = statusCode};
+            var hyperionResponse = new HyperionResponse<TModel>(model, serializer) {StatusCode = statusCode};
             return hyperionResponse;
         }
 #endif
