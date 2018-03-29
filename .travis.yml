@@ -1,2 +1,25 @@
-language: csharp
-solution: 
+language: csharp  
+sudo: required  
+dist: trusty  
+env:  
+  - CLI_VERSION=latest
+mono:  
+  - 5.10.0
+dotnet: 2.0.0
+os:  
+  - linux
+  - osx
+osx_image: xcode7.1  
+branches:  
+  only:
+    - master
+    - /.*/
+script:  
+  - ./build.sh
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: chmod +x ./deploy.sh && ./deploy.sh $NUGET_API_KEY $NUGET_SOURCE $TRAVIS_BUILD_NUMBER
+on:
+  branch: master
+  condition: $TRAVIS_OS_NAME = linux
