@@ -16,3 +16,9 @@ branches:
     - /.*/
 script:  
   - ./build.sh
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: chmod +x ./deploy.sh && ./deploy.sh $NUGET_API_KEY $NUGET_SOURCE $TRAVIS_BUILD_NUMBER
+on:
+  branch: master

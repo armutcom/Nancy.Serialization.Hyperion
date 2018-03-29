@@ -2,10 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net452</TargetFrameworks>
-    <Version>0.0.2-beta</Version>
+
+    <PackVersion Condition=" '$(TargetFramework)' == 'net452' ">1.0.1</PackVersion>
+    <PackVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">2.0.1</PackVersion>
+    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+
+    <VersionPrefix>$(PackVersion).$(BuildNumber)</VersionPrefix>
+    <VersionSuffix Condition=" '$(TargetFramework)' == 'netstandard1.6' ">beta</VersionSuffix>
+
     <Authors>Armut Teknoloji A.Ş.</Authors>
     <Description>Provides polymorphic (de)serialization support using Hyperion.</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'net452' ">true</DisableImplicitFrameworkReferences>
     <PackageProjectUrl>https://github.com/armutcom/Nancy.Serialization.Hyperion</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/armutcom/Nancy.Serialization.Hyperion/blob/master/LICENSE</PackageLicenseUrl>
