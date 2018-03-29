@@ -1,14 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.6;net452</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard1.6</TargetFrameworks>
 
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
-    <PackVersion Condition=" '$(TargetFramework)' == 'net452' ">1.0.1.$(BuildNumber)</PackVersion>
-    <PackVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">2.0.1.$(BuildNumber)</PackVersion>
-
-    <VersionPrefix>$(PackVersion)</VersionPrefix>
-    <VersionSuffix Condition=" '$(TargetFramework)' == 'netstandard1.6' ">beta</VersionSuffix>
+    <AssemblyVersion Condition=" '$(TargetFramework)' == 'net452' ">1.0.1.$(BuildNumber)</AssemblyVersion>
+    <AssemblyVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">2.0.1.$(BuildNumber)</AssemblyVersion>
 
     <Authors>Armut Teknoloji A.Ş.</Authors>
     <Description>Provides polymorphic (de)serialization support using Hyperion.</Description>
