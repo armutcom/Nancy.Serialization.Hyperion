@@ -22,3 +22,4 @@ deploy:
   script: chmod +x ./deploy.sh && ./deploy.sh $NUGET_API_KEY $NUGET_SOURCE $TRAVIS_BUILD_NUMBER
 on:
   branch: master
+  condition: $TRAVIS_OS_NAME = linux

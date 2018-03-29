@@ -3,11 +3,11 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net452</TargetFrameworks>
 
-    <PackVersion Condition=" '$(TargetFramework)' == 'net452' ">1.0.1</PackVersion>
-    <PackVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">2.0.1</PackVersion>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+    <PackVersion Condition=" '$(TargetFramework)' == 'net452' ">1.0.1.$(BuildNumber)</PackVersion>
+    <PackVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">2.0.1.$(BuildNumber)</PackVersion>
 
-    <VersionPrefix>$(PackVersion).$(BuildNumber)</VersionPrefix>
+    <VersionPrefix>$(PackVersion)</VersionPrefix>
     <VersionSuffix Condition=" '$(TargetFramework)' == 'netstandard1.6' ">beta</VersionSuffix>
 
     <Authors>Armut Teknoloji A.Ş.</Authors>
