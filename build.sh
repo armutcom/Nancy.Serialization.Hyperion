@@ -5,8 +5,6 @@ set -e
 
 export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.5.2-api/
 
-dotnet restore Nancy.Serialization.Hyperion.sln
-
 # Ideally we would use the 'dotnet test' command to test netcoreapp and net451 so restrict for now 
 # but this currently doesn't work due to https://github.com/dotnet/cli/issues/3073 so restrict to netcoreapp
 dotnet test ./tests/Nancy.Serialization.Hyperion.Tests -c Release -f netcoreapp3.0
