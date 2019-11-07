@@ -28,7 +28,7 @@ namespace Nancy.Serialization.Hyperion.Tests
             BrowserResponse browserResponse = await browser.Post("/stuff", context =>
             {
                 context.HttpRequest();
-                context.HyperionBody(user);
+                context.HyperionBody(user, new HyperionSerializer(bootstrapper.Serializer));
             });
 
             Assert.Equal(user.Id.ToString(), browserResponse.Body.AsString());
