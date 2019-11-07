@@ -17,11 +17,18 @@ namespace Nancy.Serialization.Hyperion
             StatusCode = HttpStatusCode.OK;
         }
 
-        private static string DefaultContentType => "application/x-hyperion";
+        private static string DefaultContentType => HyperionHelper.HyperionContentType;
 
         private static Action<Stream> GetHyperionContents(TModel model, ISerializer serializer)
         {
             return stream => serializer.Serialize(DefaultContentType, model, stream);
+        }
+    }
+
+    public class HyperionResponse : HyperionResponse<object>
+    {
+        public HyperionResponse(object model, ISerializer serializer) : base(model, serializer)
+        {
         }
     }
 }

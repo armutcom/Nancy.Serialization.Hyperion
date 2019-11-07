@@ -1,18 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net452;netstandard1.6</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
 
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
-    <AssemblyVersion Condition=" '$(TargetFramework)' == 'net452' ">1.0.1.$(BuildNumber)</AssemblyVersion>
-    <AssemblyVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">2.0.1.$(BuildNumber)</AssemblyVersion>
+    <AssemblyVersion>2.0.1.$(BuildNumber)</AssemblyVersion>
 
     <Authors>Armut Teknoloji A.Ş.</Authors>
     <Description>Provides polymorphic (de)serialization support using Hyperion.</Description>
     <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'net452' ">true</DisableImplicitFrameworkReferences>
     <PackageProjectUrl>https://github.com/armutcom/Nancy.Serialization.Hyperion</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/armutcom/Nancy.Serialization.Hyperion/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>https://armut.com/favicon.ico</PackageIconUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageTags>Hyperion, Nancy, Wire, Polymorphic Serialization</PackageTags>
     <Company>Armut Teknoloji A.Ş.</Company>
 
@@ -32,24 +31,21 @@
     <AssemblySearchPaths Condition="'$(BaseFrameworkPathOverrideForMono)' != ''">$(FrameworkPathOverride)/Facades;$(AssemblySearchPaths)</AssemblySearchPaths>
   </PropertyGroup>
 
+  <Target Name="PreBuild" AfterTargets="PreBuildEvent">
+    <ItemGroup>
+      <LicenseFile Include="../../LICENSE" />
+    </ItemGroup>
+    <Copy SourceFiles="@(LicenseFile)" DestinationFiles="@(LicenseFile->'./LICENSE.txt')" SkipUnchangedFiles="true" />
+  </Target>
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-
-    <PackageReference Include="Nancy" Version="1.4.4" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
-    <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hyperion" Version="0.9.8" />
+    <PackageReference Include="Hyperion" Version="0.9.10" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
   </ItemGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
-    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
-  </PropertyGroup>
-
 </Project>

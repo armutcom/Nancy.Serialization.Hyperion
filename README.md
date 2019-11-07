@@ -94,4 +94,4 @@ static void Main(string[] args)
 ```
 
 ## License
-Licensed under Apache 2.0, see [LICENSE](LICENSE) for the full text.
+Licensed under MIT, see [LICENSE](LICENSE) for the full text.

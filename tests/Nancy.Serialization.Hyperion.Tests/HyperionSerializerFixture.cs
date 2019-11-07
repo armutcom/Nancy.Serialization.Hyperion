@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
+
 using Hyperion;
+
 using Nancy.Serialization.Hyperion.Settings;
 using Nancy.Serialization.Hyperion.Tests.Utils;
+
 using Xunit;
 
 namespace Nancy.Serialization.Hyperion.Tests
@@ -12,9 +15,10 @@ namespace Nancy.Serialization.Hyperion.Tests
         [Fact]
         public void Should_Return_True_If_Given_Mime_Is_Correct()
         {
+
             var hyperionDeserializer = new HyperionSerializer();
 
-            var canDeserialize = hyperionDeserializer.CanSerialize("application/x-hyperion");
+            bool canDeserialize = hyperionDeserializer.CanSerialize("application/x-hyperion");
 
             Assert.True(canDeserialize);
         }
@@ -22,17 +26,10 @@ namespace Nancy.Serialization.Hyperion.Tests
         [Fact]
         public void Should_Serialize_Given_Object()
         {
-            var serializer = new Serializer(new SerializerOptions(
-                preserveObjectReferences: HyperionSerializerSettings.Default.PreserveObjectReferences,
-                versionTolerance: HyperionSerializerSettings.Default.VersionTolerance,
-                ignoreISerializable: true));
+            var serializer = new Serializer(new SerializerOptions(preserveObjectReferences: HyperionSerializerSettings.Default.PreserveObjectReferences,
+                                                                  versionTolerance: HyperionSerializerSettings.Default.VersionTolerance, ignoreISerializable: true));
 
-            var user = new TestUser
-            {
-                Age = 31,
-                Id = Guid.NewGuid(),
-                Name = "Deniz"
-            };
+            var user = new TestUser {Age = 31, Id = Guid.NewGuid(), Name = "Deniz"};
 
             var hyperionSerializer = new HyperionSerializer(serializer);
 
@@ -42,7 +39,7 @@ namespace Nancy.Serialization.Hyperion.Tests
 
                 bodyStream.Position = 0;
 
-                var deserializedUser = serializer.Deserialize(bodyStream);
+                object deserializedUser = serializer.Deserialize(bodyStream);
 
                 var testUser = deserializedUser as TestUser;
 

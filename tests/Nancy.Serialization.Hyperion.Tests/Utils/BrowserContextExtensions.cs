@@ -1,4 +1,5 @@
 ﻿using System.IO;
+
 using Nancy.Testing;
 
 namespace Nancy.Serialization.Hyperion.Tests.Utils

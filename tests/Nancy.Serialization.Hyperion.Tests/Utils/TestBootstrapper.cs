@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Nancy.Testing;
 
 namespace Nancy.Serialization.Hyperion.Tests.Utils
@@ -10,14 +11,16 @@ namespace Nancy.Serialization.Hyperion.Tests.Utils
         {
         }
 
-        public TestBootstrapper(Action<ConfigurableBootstrapperConfigurator> configuration)
-            : base(configuration)
+        public TestBootstrapper(Action<ConfigurableBootstrapperConfigurator> configuration) : base(configuration)
         {
         }
 
         protected override IEnumerable<Type> BodyDeserializers
         {
-            get { yield return typeof(HyperionBodyDeserializer); }
+            get
+            {
+                yield return typeof(HyperionBodyDeserializer);
+            }
         }
     }
 }
