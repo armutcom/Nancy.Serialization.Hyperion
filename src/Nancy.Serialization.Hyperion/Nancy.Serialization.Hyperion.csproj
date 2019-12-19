@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net452;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
 
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
     <AssemblyVersion>2.0.1.$(BuildNumber)</AssemblyVersion>
 
     <Authors>Armut Teknoloji A.Ş.</Authors>
     <Description>Provides polymorphic (de)serialization support using Hyperion.</Description>
-    <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'net452' ">true</DisableImplicitFrameworkReferences>
+    <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'net461' ">true</DisableImplicitFrameworkReferences>
     <PackageProjectUrl>https://github.com/armutcom/Nancy.Serialization.Hyperion</PackageProjectUrl>
     <PackageIconUrl>https://armut.com/favicon.ico</PackageIconUrl>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -24,7 +24,7 @@
     <BaseFrameworkPathOverrideForMono Condition="'$(BaseFrameworkPathOverrideForMono)' == '' AND '$(TargetIsMono)' == 'true' AND EXISTS('/usr/lib/mono')">/usr/lib/mono</BaseFrameworkPathOverrideForMono>
     <BaseFrameworkPathOverrideForMono Condition="'$(BaseFrameworkPathOverrideForMono)' == '' AND '$(TargetIsMono)' == 'true' AND EXISTS('/usr/local/lib/mono')">/usr/local/lib/mono</BaseFrameworkPathOverrideForMono>
 
-    <FrameworkPathOverride Condition="'$(BaseFrameworkPathOverrideForMono)' != '' AND '$(TargetFramework)' == 'net452'">$(BaseFrameworkPathOverrideForMono)/4.5.2-api</FrameworkPathOverride>
+    <FrameworkPathOverride Condition="'$(BaseFrameworkPathOverrideForMono)' != '' AND '$(TargetFramework)' == 'net461'">$(BaseFrameworkPathOverrideForMono)/4.6.1</FrameworkPathOverride>
     <EnableFrameworkPathOverride Condition="'$(BaseFrameworkPathOverrideForMono)' != ''">true</EnableFrameworkPathOverride>
 
     <!-- Add the Facades directory.  Not sure how else to do this. Necessary at least for .NET 4.5 -->
@@ -38,7 +38,7 @@
     <Copy SourceFiles="@(LicenseFile)" DestinationFiles="@(LicenseFile->'./LICENSE.txt')" SkipUnchangedFiles="true" />
   </Target>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
