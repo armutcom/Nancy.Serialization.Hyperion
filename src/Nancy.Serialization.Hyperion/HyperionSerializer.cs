@@ -17,8 +17,8 @@ namespace Nancy.Serialization.Hyperion
             HyperionSerializerSettings hyperionSerializerSettings = HyperionSerializerSettings.Default;
 
             _serializer = new Serializer(new SerializerOptions(preserveObjectReferences: hyperionSerializerSettings.PreserveObjectReferences,
-                                                        versionTolerance: hyperionSerializerSettings.VersionTolerance,
-                                                        ignoreISerializable: hyperionSerializerSettings.IgnoreISerializable));
+                                                               versionTolerance: hyperionSerializerSettings.VersionTolerance,
+                                                               ignoreISerializable: hyperionSerializerSettings.IgnoreISerializable));
         }
 
         public HyperionSerializer(Serializer serializer)

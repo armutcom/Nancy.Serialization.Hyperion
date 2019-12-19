@@ -2,7 +2,6 @@
 
 using Nancy.Demo.Models;
 using Nancy.ModelBinding;
-using Nancy.Serialization.Hyperion;
 
 namespace Nancy.Demo.AspNet.Application.Modules
 {
@@ -12,13 +11,7 @@ namespace Nancy.Demo.AspNet.Application.Modules
         {
             Get("/user", args =>
             {
-                var user = new User()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Ozgen",
-                    Age = 32,
-                    CreateDate = DateTime.Now
-                };
+                var user = new User() {Id = Guid.NewGuid(), Name = "Ozgen", Age = 32, CreateDate = DateTime.Now};
 
                 // return Response.AsHyperion<User>(user);
 

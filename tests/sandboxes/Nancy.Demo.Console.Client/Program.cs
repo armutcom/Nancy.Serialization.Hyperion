@@ -14,18 +14,9 @@ namespace Nancy.Demo.Console.Client
     {
         private static async Task Main(string[] args)
         {
-            var serializer = new Serializer(new SerializerOptions(
-                                                preserveObjectReferences: true,
-                                                versionTolerance: true,
-                                                ignoreISerializable: true));
+            var serializer = new Serializer(new SerializerOptions(preserveObjectReferences: true, versionTolerance: true, ignoreISerializable: true));
 
-            var user = new User()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Deniz",
-                Age = 31,
-                CreateDate = DateTime.Now
-            };
+            var user = new User() {Id = Guid.NewGuid(), Name = "Deniz", Age = 31, CreateDate = DateTime.Now};
 
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-hyperion"));

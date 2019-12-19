@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using Hyperion;
 
-using Nancy.Bootstrapper;
-using Nancy.Responses.Negotiation;
 using Nancy.Serialization.Hyperion.Settings;
 using Nancy.Testing;
 using Nancy.TinyIoc;
@@ -13,8 +11,6 @@ namespace Nancy.Serialization.Hyperion.Tests.Utils
 {
     public class TestBootstrapper : ConfigurableBootstrapper
     {
-        public Serializer Serializer { get; set; }
-
         public TestBootstrapper()
         {
         }
@@ -22,6 +18,8 @@ namespace Nancy.Serialization.Hyperion.Tests.Utils
         public TestBootstrapper(Action<ConfigurableBootstrapperConfigurator> configuration) : base(configuration)
         {
         }
+
+        public Serializer Serializer { get; set; }
 
         protected override IEnumerable<Type> BodyDeserializers
         {

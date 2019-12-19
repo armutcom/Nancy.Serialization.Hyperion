@@ -15,7 +15,6 @@ namespace Nancy.Serialization.Hyperion.Tests
         [Fact]
         public void Should_Return_True_If_Given_Mime_Is_Correct()
         {
-
             var hyperionDeserializer = new HyperionSerializer();
 
             bool canDeserialize = hyperionDeserializer.CanSerialize("application/x-hyperion");

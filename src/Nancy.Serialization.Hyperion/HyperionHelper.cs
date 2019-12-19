@@ -10,8 +10,7 @@ namespace Nancy.Serialization.Hyperion
 
         public static bool IsHyperion(string contentType)
         {
-            return !string.IsNullOrEmpty(contentType) 
-                   && contentType.Equals(HyperionContentType, StringComparison.OrdinalIgnoreCase);
+            return !string.IsNullOrEmpty(contentType) && contentType.Equals(HyperionContentType, StringComparison.OrdinalIgnoreCase);
         }
 
         public static MediaRange GetHyperionMediaRange()

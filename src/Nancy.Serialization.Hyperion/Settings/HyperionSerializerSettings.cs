@@ -4,6 +4,8 @@
     {
         public static readonly HyperionSerializerSettings Default = new HyperionSerializerSettings(true, true, true);
 
+        public readonly bool IgnoreISerializable;
+
         /// <summary>
         ///     When true, it tells <see cref="HyperionSerializer" /> to keep
         ///     track of references in serialized/deserialized object graph.
@@ -15,8 +17,6 @@
         ///     a list of currently serialized fields into type manifest.
         /// </summary>
         public readonly bool VersionTolerance;
-
-        public readonly bool IgnoreISerializable;
 
         /// <summary>
         ///     Creates a new instance of a <see cref="HyperionSerializerSettings" />.

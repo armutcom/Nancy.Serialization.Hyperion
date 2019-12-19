@@ -19,7 +19,7 @@ namespace Nancy.Serialization.Hyperion.Tests
         public void Should_Deserialize_Given_Object()
         {
             var serializer = new Serializer(new SerializerOptions(preserveObjectReferences: HyperionSerializerSettings.Default.PreserveObjectReferences,
-                                                                  versionTolerance: HyperionSerializerSettings.Default.VersionTolerance, 
+                                                                  versionTolerance: HyperionSerializerSettings.Default.VersionTolerance,
                                                                   ignoreISerializable: HyperionSerializerSettings.Default.IgnoreISerializable));
 
             var user = new TestUser {Age = 31, Id = Guid.NewGuid(), Name = "Deniz"};
@@ -55,7 +55,7 @@ namespace Nancy.Serialization.Hyperion.Tests
         public void Should_Return_True_If_Given_Mime_Is_Correct()
         {
             var serializer = new Serializer(new SerializerOptions(preserveObjectReferences: HyperionSerializerSettings.Default.PreserveObjectReferences,
-                                                                  versionTolerance: HyperionSerializerSettings.Default.VersionTolerance, 
+                                                                  versionTolerance: HyperionSerializerSettings.Default.VersionTolerance,
                                                                   ignoreISerializable: HyperionSerializerSettings.Default.IgnoreISerializable));
 
             var hyperionBodyDeserializer = new HyperionBodyDeserializer(serializer);

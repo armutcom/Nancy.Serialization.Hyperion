@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Nancy.Responses;
-using Nancy.Responses.Negotiation;
-
-namespace Nancy.Serialization.Hyperion
+﻿namespace Nancy.Serialization.Hyperion
 {
     public static class FormatterExtensions
     {
@@ -23,6 +14,7 @@ namespace Nancy.Serialization.Hyperion
         {
             ISerializer serializer = formatter.SerializerFactory.GetSerializer(HyperionHelper.HyperionContentType);
             var hyperionResponse = new HyperionResponse<TModel>(model, serializer) {StatusCode = statusCode};
+
             return hyperionResponse;
         }
     }

@@ -27,16 +27,10 @@ namespace Nancy.Demo.AspNet.Application
             });
 
             // If using Kestrel:
-            services.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            services.Configure<KestrelServerOptions>(options => { options.AllowSynchronousIO = true; });
 
             // If using IIS:
-            services.Configure<IISServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            services.Configure<IISServerOptions>(options => { options.AllowSynchronousIO = true; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
