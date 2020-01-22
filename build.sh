@@ -6,7 +6,7 @@ set -e
 export FrameworkPathOverride=$(dirname $(which mono))/../lib/mono/4.6.1-api/
 
 mkdir testrunner
-nuget install xunit.runner.console.2.4.1 -OutputDirectory ./testrunner
+nuget install xunit.runner.console -Version 2.4.1 -OutputDirectory ./testrunner
 
 # Ideally we would use the 'dotnet test' command to test netcoreapp and net451 so restrict for now 
 # but this currently doesn't work due to https://github.com/dotnet/cli/issues/3073 so restrict to netcoreapp
