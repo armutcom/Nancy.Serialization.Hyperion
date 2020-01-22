@@ -28,7 +28,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime" />
     <Reference Include="System.Threading.Tasks" />
-    
+    <Reference Include="System.IO" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
