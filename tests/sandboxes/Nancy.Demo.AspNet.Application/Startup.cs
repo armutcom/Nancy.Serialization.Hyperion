@@ -42,16 +42,6 @@ namespace Nancy.Demo.AspNet.Application
             }
 
             app.UseOwin(action => action.UseNancy(options => options.Bootstrapper = new DemoBootstrapper(app.ApplicationServices, env)));
-
-            //app.UseRouting();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/", async context =>
-            //    {
-            //        await context.Response.WriteAsync("Hello World!");
-            //    });
-            //});
         }
     }
 }
