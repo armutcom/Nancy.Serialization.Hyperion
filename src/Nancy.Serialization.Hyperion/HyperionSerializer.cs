@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+
 using Hyperion;
+
 using Nancy.Responses.Negotiation;
 using Nancy.Serialization.Hyperion.Settings;
 
@@ -12,12 +14,11 @@ namespace Nancy.Serialization.Hyperion
 
         public HyperionSerializer()
         {
-            var hyperionSerializerSettings = HyperionSerializerSettings.Default;
+            HyperionSerializerSettings hyperionSerializerSettings = HyperionSerializerSettings.Default;
 
-            _serializer = new Serializer(new SerializerOptions(
-                preserveObjectReferences: hyperionSerializerSettings.PreserveObjectReferences,
-                versionTolerance: hyperionSerializerSettings.VersionTolerance,
-                ignoreISerializable: true));
+            _serializer = new Serializer(new SerializerOptions(preserveObjectReferences: hyperionSerializerSettings.PreserveObjectReferences,
+                                                               versionTolerance: hyperionSerializerSettings.VersionTolerance,
+                                                               ignoreISerializable: hyperionSerializerSettings.IgnoreISerializable));
         }
 
         public HyperionSerializer(Serializer serializer)
@@ -25,7 +26,6 @@ namespace Nancy.Serialization.Hyperion
             _serializer = serializer;
         }
 
-#if NETSTANDARD
         public bool CanSerialize(MediaRange mediaRange)
         {
             return HyperionHelper.IsHyperion(mediaRange);
@@ -35,21 +35,13 @@ namespace Nancy.Serialization.Hyperion
         {
             _serializer.Serialize(model, outputStream);
         }
-#else
-        public bool CanSerialize(string contentType)
-        {
-            return HyperionHelper.IsHyperion(contentType);
-        }
-
-        public void Serialize<TModel>(string contentType, TModel model, Stream outputStream)
-        {
-            _serializer.Serialize(model, outputStream);
-        }
-#endif
 
         public IEnumerable<string> Extensions
         {
-            get { yield return "hyperion"; }
+            get
+            {
+                yield return "hyperion";
+            }
         }
     }
 }

@@ -2,7 +2,9 @@
 {
     public sealed class HyperionSerializerSettings
     {
-        public static readonly HyperionSerializerSettings Default = new HyperionSerializerSettings(true, true);
+        public static readonly HyperionSerializerSettings Default = new HyperionSerializerSettings(true, true, true);
+
+        public readonly bool IgnoreISerializable;
 
         /// <summary>
         ///     When true, it tells <see cref="HyperionSerializer" /> to keep
@@ -24,10 +26,12 @@
         ///     serialized object graph.
         /// </param>
         /// <param name="versionTolerance">Flag which determines if field data should be serialized as part of type manifest.</param>
-        public HyperionSerializerSettings(bool preserveObjectReferences, bool versionTolerance)
+        /// <param name="ignoreISerializable"></param>
+        public HyperionSerializerSettings(bool preserveObjectReferences, bool versionTolerance, bool ignoreISerializable)
         {
             PreserveObjectReferences = preserveObjectReferences;
             VersionTolerance = versionTolerance;
+            IgnoreISerializable = ignoreISerializable;
         }
     }
 }

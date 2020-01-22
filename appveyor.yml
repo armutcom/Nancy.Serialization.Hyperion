@@ -1,0 +1,27 @@
+image:
+  - Visual Studio 2019
+  - Ubuntu
+branches:
+  only:
+  - master
+init:
+  - cmd: git config --global core.autocrlf true
+build_script:
+  - ps: dotnet build Nancy.Serialization.Hyperion.sln -c Release
+test_script:
+  - ps: dotnet test ./tests/Nancy.Serialization.Hyperion.Tests -c Release --no-build
+for:
+-
+  matrix:
+    only:
+      - image: Ubuntu
+
+  init:
+    - sh: sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe && alias nuget="mono /usr/local/bin/nuget.exe"
+
+  build_script:
+    - sh: sudo mono --version && sudo dotnet build Nancy.Serialization.Hyperion.sln -c Release
+
+  test_script:
+    - sh: sudo ./build.sh
+deploy: off
