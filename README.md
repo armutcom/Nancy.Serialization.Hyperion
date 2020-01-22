@@ -1,14 +1,20 @@
 # Nancy.Serialization.Hyperion
 Implementations of the ISerialization and IBodyDeserializer interfaces, based on [Hyperion](https://github.com/akkadotnet/Hyperion), for [Nancy](http://nancyfx.org)
 
-## Builds status
-|       | Linux | OS X |
+|       | Stable 
+|-------|-------|
+| Package | [![Build Status](https://img.shields.io/nuget/v/Nancy.Serialization.Hyperion.svg)](https://www.nuget.org/packages/Nancy.Serialization.Hyperion/)       
+
+## Supported Platforms
+
+- .NET 4.6.1 (Desktop / Server)
+- [.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+
+## Continuous integration
+|       | Windows | Linux |
 |-------|-------|----------|
-| Build | [![Build Status](https://travis-ci-job-status.herokuapp.com/badge/armutcom/Nancy.Serialization.Hyperion/master/linux)](https://travis-ci.org/armutcom/Nancy.Serialization.Hyperion)      | [![Build Status](https://travis-ci-job-status.herokuapp.com/badge/armutcom/Nancy.Serialization.Hyperion/master/osx)](https://travis-ci.org/armutcom/Nancy.Serialization.Hyperion)         |
-## Nuget
-|       | Stable | Prerelease |
-|-------|-------|----------|
-| Package | [![Build Status](https://img.shields.io/nuget/v/Nancy.Serialization.Hyperion.svg)](https://www.nuget.org/packages/Nancy.Serialization.Hyperion/)       | [![Build Status](https://img.shields.io/nuget/vpre/Nancy.Serialization.Hyperion.svg)](https://www.nuget.org/packages/Nancy.Serialization.Hyperion/)  |
+| Build | [![Build Status](https://appveyor-matrix-badges.herokuapp.com/repos/Blind-Striker/nancy-serialization-hyperion/branch/master/1)](https://ci.appveyor.com/project/Blind-Striker/nancy-serialization-hyperion)      | [![Build Status](https://appveyor-matrix-badges.herokuapp.com/repos/Blind-Striker/nancy-serialization-hyperion/branch/master/2)](https://ci.appveyor.com/project/Blind-Striker/nancy-serialization-hyperion)          |
+
 
 ## Usage
 
