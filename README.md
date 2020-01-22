@@ -66,7 +66,7 @@ static void Main(string[] args)
 
     using (var client = new HttpClient())
     {
-        var uri = new Uri("");
+        var uri = new Uri("<url>");
 
         using (var stream = new MemoryStream())
         {
