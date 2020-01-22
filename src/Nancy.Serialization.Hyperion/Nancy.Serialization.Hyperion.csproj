@@ -3,17 +3,16 @@
   <PropertyGroup>
     <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
 
-    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
-    <AssemblyVersion>2.0.1.$(BuildNumber)</AssemblyVersion>
-
     <Authors>Armut Teknoloji A.Ş.</Authors>
     <Description>Provides polymorphic (de)serialization support using Hyperion.</Description>
     <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'net461' ">true</DisableImplicitFrameworkReferences>
     <PackageProjectUrl>https://github.com/armutcom/Nancy.Serialization.Hyperion</PackageProjectUrl>
-    <PackageIconUrl>https://armut.com/favicon.ico</PackageIconUrl>
+    <PackageIcon>package-icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageTags>Hyperion, Nancy, Wire, Polymorphic Serialization</PackageTags>
     <Company>Armut Teknoloji A.Ş.</Company>
+
+    <Version>2.1.1</Version>
 
     <!-- When compiling .NET SDK 2.0 projects targeting .NET 4.x on Mono using 'dotnet build' you -->
     <!-- have to teach MSBuild where the Mono copy of the reference asssemblies is -->
@@ -37,6 +36,13 @@
     </ItemGroup>
     <Copy SourceFiles="@(LicenseFile)" DestinationFiles="@(LicenseFile->'./LICENSE.txt')" SkipUnchangedFiles="true" />
   </Target>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="../../assets/package-icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <Reference Include="Microsoft.CSharp" />
